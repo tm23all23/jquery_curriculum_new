@@ -84,6 +84,24 @@
     </div>
     <script src="../../common/js/jquery.js"></script>
     <script>
+    $(function() {
+      $(".select").change(function(){ 
+        var i=$(this).val();
+        if(i=="all"){
+          $('ul.list li').each(function(){
+            $(this).show()
+          }); 
+        } else {
+          $('ul.list li').each(function(){
+            if($(this).data("category-type")==i){ 
+              $(this).show(); 
+            } else {
+              $(this).hide(); 
+            }
+          });
+        }
+      });
+    });
       // 今回やるのはソート機能です。
       // selectボックスをクリックして言語を選び、その言語と関係のあるリストだけが表示されるプログラムです。
       // [処理の流れ]
